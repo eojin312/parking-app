@@ -1,0 +1,14 @@
+server:
+  address: localhost
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: dldjwls02!
+    url: jdbc:mysql://freelec-springboot-webservice.cpfydcw1rv0p.ap-northeast-2.rds.amazonaws.com:3306/parking?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: hachi
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    show-sql: true
