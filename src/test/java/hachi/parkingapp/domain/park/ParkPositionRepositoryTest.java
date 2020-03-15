@@ -19,7 +19,7 @@ public class ParkPositionRepositoryTest {
     @Test
     public void save테스트() {
         ParkPosition parkPosition = ParkPosition.builder()
-                .lastPostion("2")
+                .lastPosition("2")
                 .updateDate(LocalDateTime.now())
                 .no(1L)
                 .build();
@@ -29,4 +29,11 @@ public class ParkPositionRepositoryTest {
 
         Assert.assertTrue(parkPosition.getNo() > 0);
     }
+
+    @Test
+    public void 조회테스트() {
+        ParkPosition parkPosition = parkPositionRepository.findById(1L).orElseThrow();
+        Assert.assertTrue(parkPosition != null);
+    }
+
 }

@@ -17,16 +17,16 @@ public class ParkPosition {
     private Long no;
 
     @Column(nullable = false)
-    private String lastPostion;
+    private String lastPosition;
 
     @Column(nullable = false)
     private LocalDateTime updateDate;
 
 
     @Builder
-    public ParkPosition(Long no, String lastPostion, LocalDateTime updateDate) {
+    public ParkPosition(Long no, String lastPosition, LocalDateTime updateDate) {
         this.no = no;
-        this.lastPostion = lastPostion;
+        this.lastPosition = lastPosition;
         this.updateDate = updateDate;
     }
 }
