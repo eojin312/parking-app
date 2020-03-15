@@ -32,8 +32,8 @@ public class ParkPositionRepositoryTest {
 
     @Test
     public void 조회테스트() {
-        ParkPosition parkPosition = parkPositionRepository.findById(1L).orElseThrow();
-        Assert.assertTrue(parkPosition != null);
+        String lastPosition = parkPositionRepository.findById(1L).map(ParkPosition::getLastPosition).orElse("0");
+        Assert.assertTrue(lastPosition.length() > 0);
     }
 
 }
