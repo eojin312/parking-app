@@ -19,6 +19,6 @@ public class ParkPositionApiController {
 
     @GetMapping("")
     public String getLastPosition() {
-        return parkPositionService.findById(1L).getLastPosition();
+        return parkPositionService.findById(1L).map(ParkPosition::getLastPosition).orElse("0");
     }
 }

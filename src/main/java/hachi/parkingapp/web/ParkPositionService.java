@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class ParkPositionService {
@@ -26,7 +27,7 @@ public class ParkPositionService {
         return parkPosition;
     }
 
-    public ParkPosition findById(Long no) {
+    public Optional<ParkPosition> findById(Long no) {
 
         ParkPosition defaultParkPosition = ParkPosition.builder()
                 .lastPosition("0")
@@ -35,6 +36,6 @@ public class ParkPositionService {
                 .build();
 
 
-        return parkPositionRepository.findById(no).orElse(defaultParkPosition);
+        return parkPositionRepository.findById(no);
     }
 }
