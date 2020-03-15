@@ -27,6 +27,14 @@ public class ParkPositionService {
     }
 
     public ParkPosition findById(Long no) {
-        return parkPositionRepository.findById(no).orElse(null);
+
+        ParkPosition defaultParkPosition = ParkPosition.builder()
+                .lastPosition("0")
+                .updateDate(LocalDateTime.now())
+                .no(1L)
+                .build();
+
+
+        return parkPositionRepository.findById(no).orElse(defaultParkPosition);
     }
 }
