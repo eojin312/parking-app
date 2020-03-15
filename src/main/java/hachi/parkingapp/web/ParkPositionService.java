@@ -27,6 +27,6 @@ public class ParkPositionService {
     }
 
     public ParkPosition findById(Long no) {
-        return parkPositionRepository.findById(no).orElseThrow();
+        return parkPositionRepository.findById(no).orElse(null);
     }
 }
