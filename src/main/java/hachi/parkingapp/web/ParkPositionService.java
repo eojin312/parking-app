@@ -14,12 +14,12 @@ public class ParkPositionService {
     @Autowired
     private ParkPositionRepository parkPositionRepository;
 
-    public ParkPosition save(String lastPosition) {
+    public ParkPosition save(String lastPosition, Long no) {
 
         ParkPosition parkPosition = ParkPosition.builder()
                 .lastPosition(lastPosition)
                 .updateDate(LocalDateTime.now())
-                .no(1L)
+                .no(no)
                 .build();
 
         parkPositionRepository.save(parkPosition);
@@ -32,7 +32,7 @@ public class ParkPositionService {
         ParkPosition defaultParkPosition = ParkPosition.builder()
                 .lastPosition("0")
                 .updateDate(LocalDateTime.now())
-                .no(1L)
+                .no(no)
                 .build();
 
 

@@ -12,13 +12,13 @@ public class ParkPositionApiController {
     private ParkPositionService parkPositionService;
 
     @PostMapping("")
-    public ParkPosition save(@RequestParam("lastPosition") String lastPosition) {
-        ParkPosition parkPosition = parkPositionService.save(lastPosition);
+    public ParkPosition save(@RequestParam("lastPosition") String lastPosition, @RequestParam(value = "no", defaultValue = "0") Long no) {
+        ParkPosition parkPosition = parkPositionService.save(lastPosition, no);
         return parkPosition;
     }
 
     @GetMapping("")
-    public String getLastPosition() {
-        return parkPositionService.findById(1L).map(ParkPosition::getLastPosition).orElse("0");
+    public String getLastPosition(@RequestParam(value = "no", defaultValue = "1") Long no) {
+        return parkPositionService.findById(no).map(ParkPosition::getLastPosition).orElse("0");
     }
 }
