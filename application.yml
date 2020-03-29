@@ -12,3 +12,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     generate-ddl: true
     show-sql: true
+
+  thymeleaf:
+      prefix: /WEB-INF/views/
+      suffix: .html
+      cache: false
+
