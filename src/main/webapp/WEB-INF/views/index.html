@@ -1,0 +1,89 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주차위치 기억 서비스</title>
+    <style type="text/css">
+        div {
+            height: 250px;
+            text-align: center;
+            font-size: 5em;
+            line-height: 250px;
+        }
+
+        .first_half {
+            background-color: rosybrown
+
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+</head>
+<body>
+
+<div class="first_half">1.5</div>
+<div style="background-color: darkseagreen">2</div>
+<div style="background-color: bisque">2.5</div>
+<div style="background-color: gold">3</div>
+<div style="background-color: aqua">3.5</div>
+<div style="background-color: #EEEEEE">4</div>
+<div style="background-color: coral">4.5</div>
+
+<script>
+    const LAST_MARK = '<span class=".last" style="font-size: 44px;">[마지막]</span>';
+
+    var parkIdNo = '[[${no}]]';
+
+    if (parkIdNo == '') {
+        parkIdNo = 1;
+    }
+
+    $(document).ready(function () {
+
+        $.get('/park?no=' + parkIdNo, function (_lastPosition) {
+            if (_lastPosition == 0) { // 없는 사용자
+                $.post("/park",
+                    {
+                        lastPosition: 0
+                        ,no: parkIdNo
+                    }
+                );
+            } else {
+                $('div').each(function () {
+                    let floor = $(this).text();
+                    if (floor == _lastPosition) {
+                        $(this).append(LAST_MARK);
+                    }
+                });
+            }
+        });
+    });
+
+    $('div').on('click', function () {
+
+        let floor = $(this).text();
+
+        if (confirm(floor + '층으로 선택하시겠습니까?') === false) {
+            return;
+        }
+
+        $.post("/park", {
+            lastPosition: floor
+            ,no:parkIdNo
+        })
+            .done(function (data) {
+                let _lastPosition = data.lastPosition;
+                $('div').each(function () {
+                    let floor = $(this).text();
+                    if (floor == _lastPosition) {
+                        $(this).append(LAST_MARK);
+                    } else {
+                        $(this).find('span').remove();
+                    }
+                });
+            });
+    })
+</script>
+</body>
+</html>

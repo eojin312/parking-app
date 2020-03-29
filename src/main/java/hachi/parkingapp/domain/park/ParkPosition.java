@@ -22,11 +22,14 @@ public class ParkPosition {
     @Column(nullable = false)
     private LocalDateTime updateDate;
 
+    @Column
+    private String userAgent;
 
     @Builder
-    public ParkPosition(Long no, String lastPosition, LocalDateTime updateDate) {
+    public ParkPosition(Long no, String lastPosition, LocalDateTime updateDate, String userAgent) {
         this.no = no;
         this.lastPosition = lastPosition;
         this.updateDate = updateDate;
+        this.userAgent = userAgent;
     }
 }

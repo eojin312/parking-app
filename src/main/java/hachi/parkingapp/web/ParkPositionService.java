@@ -14,12 +14,13 @@ public class ParkPositionService {
     @Autowired
     private ParkPositionRepository parkPositionRepository;
 
-    public ParkPosition save(String lastPosition, Long no) {
+    public ParkPosition save(String lastPosition, Long no, String userAgent) {
 
         ParkPosition parkPosition = ParkPosition.builder()
                 .lastPosition(lastPosition)
                 .updateDate(LocalDateTime.now())
                 .no(no)
+                .userAgent(userAgent)
                 .build();
 
         parkPositionRepository.save(parkPosition);
