@@ -6,7 +6,7 @@
 # 기술스택
  - JDK 11
  - springboot 2.2.7
- - spring-data-jpa
+ - spring data jpa
  - javascript
  - jquery
  - JUnit 5
@@ -24,3 +24,11 @@
  # 핵심 기능
  
  ![주차](https://user-images.githubusercontent.com/45488643/85920403-69f97d80-b8ae-11ea-982e-415bdd1fea73.gif)
+
+
+# 회고
+
+- jquery 의 ajax 를 사용하면서 비동기는 어떤 코드에 어떤 식으로 동작하는 지 이해했다.
+- spring-jpa 에 대해 아직 개념이 확실하게 잡혀있는 상태로 시작한 것이 아니라서 초반엔 많이 해맸지만 빠르게 자리잡고 코트중심사고로 코드를 짜는 것이 무엇인지 알 수 있었다
+- jpa 와 lombok 처럼 framework 를 사용하니 쿼리 시간과 중복되는 코드가 많이 줄어서 관리하기 더 쉬웠다
+- 무료 버전 aws 를 사용했지만 인스턴스를 받아 내가 만든 프로젝트를 다른 사람들이 사용하니 마치 실제 서비스를 운영한 것 같은 기분이 들었다.
