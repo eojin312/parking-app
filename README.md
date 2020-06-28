@@ -1,6 +1,7 @@
 # parking-app
 주차장앱만들기
-[http://ec2-15-165-139-110.ap-northeast-2.compute.amazonaws.com:8080/?no=3] (주차장위치기억서비스)
+
+(http://ec2-15-165-139-110.ap-northeast-2.compute.amazonaws.com:8080/?no=3) [주차장위치기억서비스]
 
 > 저희 아파트 지하 주차장은 복합 주차장이라 층수가 많습니다. 그래서 저희 부모님께서 이전에 차를 몇 층에 주차하셨는지 자주 까먹으셔서 만든 모바일 웹입니다. 
 
